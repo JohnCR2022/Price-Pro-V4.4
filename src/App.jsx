@@ -73,14 +73,14 @@ function App() {
 
   return (
     <div className={cn(
-      "min-h-screen p-4 md:p-8 flex items-start md:items-center justify-center transition-colors duration-500",
+      "min-h-screen p-2 md:p-8 flex items-start md:items-center justify-center transition-colors duration-500",
       darkMode ? "bg-slate-950 text-white" : "bg-slate-50 text-slate-900"
     )}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className={cn(
-          "w-full max-w-5xl rounded-[2.5rem] p-6 md:p-12 shadow-2xl space-y-10 border transition-all duration-500",
+          "w-full max-w-5xl rounded-[2rem] md:rounded-[2.5rem] p-4 md:p-12 shadow-2xl space-y-8 md:space-y-10 border transition-all duration-500",
           darkMode ? "glass-panel bg-slate-900/40 border-white/10" : "bg-white border-slate-200"
         )}
       >
@@ -96,7 +96,7 @@ function App() {
             </motion.div>
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-3xl md:text-4xl font-black tracking-tighter">Price Pro V4.3</h1>
+                <h1 className="text-2xl md:text-4xl font-black tracking-tighter">Price Pro V4.4</h1>
                 <span className="px-3 py-1 bg-brand-500/10 text-brand-500 text-[9px] font-black rounded-full border border-brand-500/20 uppercase tracking-widest">Evolution</span>
               </div>
               <p className={cn(
@@ -109,10 +109,10 @@ function App() {
           <div className="flex items-center gap-4">
             <button 
               onClick={reset}
-              className="p-3 bg-white/5 hover:bg-red-500/10 rounded-2xl border border-white/10 transition-all text-slate-400 hover:text-red-400"
+              className="p-2.5 md:p-3 bg-white/5 hover:bg-red-500/10 rounded-xl md:rounded-2xl border border-white/10 transition-all text-slate-400 hover:text-red-400"
               title="Reset All"
             >
-              <RotateCcw className="w-5 h-5" />
+              <RotateCcw className="w-4 h-4 md:w-5 md:h-5" />
             </button>
 
             <button 
@@ -132,25 +132,25 @@ function App() {
               <button 
                 onClick={() => setMode('VENTAS')}
                 className={cn(
-                  "relative px-6 py-3 rounded-xl text-xs font-black transition-all flex items-center gap-2 overflow-hidden",
+                  "relative px-4 md:px-6 py-2.5 md:py-3 rounded-lg md:rounded-xl text-[10px] md:text-xs font-black transition-all flex items-center gap-2 overflow-hidden",
                   mode === 'VENTAS' ? "text-white shadow-lg shadow-brand-500/20" : (darkMode ? "text-slate-500 hover:text-slate-300" : "text-slate-500 hover:text-slate-800")
                 )}
               >
                 {mode === 'VENTAS' && <motion.div layoutId="activeMode" className="absolute inset-0 bg-brand-500" />}
-                <span className="relative z-10 flex items-center gap-2 uppercase tracking-widest">
-                  <ArrowRightLeft className="w-4 h-4" /> VENTAS
+                <span className="relative z-10 flex items-center gap-1.5 md:gap-2 uppercase tracking-widest">
+                  <ArrowRightLeft className="w-3 h-3 md:w-4 md:h-4" /> VENTAS
                 </span>
               </button>
               <button 
                 onClick={() => setMode('COMPRAS')}
                 className={cn(
-                  "relative px-6 py-3 rounded-xl text-xs font-black transition-all flex items-center gap-2 overflow-hidden",
+                  "relative px-4 md:px-6 py-2.5 md:py-3 rounded-lg md:rounded-xl text-[10px] md:text-xs font-black transition-all flex items-center gap-2 overflow-hidden",
                   mode === 'COMPRAS' ? "text-white shadow-lg shadow-brand-500/20" : (darkMode ? "text-slate-500 hover:text-slate-300" : "text-slate-500 hover:text-slate-800")
                 )}
               >
                 {mode === 'COMPRAS' && <motion.div layoutId="activeMode" className="absolute inset-0 bg-brand-500" />}
-                <span className="relative z-10 flex items-center gap-2 uppercase tracking-widest">
-                  <ShoppingCart className="w-4 h-4" /> COMPRAS
+                <span className="relative z-10 flex items-center gap-1.5 md:gap-2 uppercase tracking-widest">
+                  <ShoppingCart className="w-3 h-3 md:w-4 md:h-4" /> COMPRAS
                 </span>
               </button>
             </div>
@@ -169,7 +169,7 @@ function App() {
               </div>
               
               <div className="space-y-4">
-                <div className="grid grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {[
                     { id: 'CARD_INSTANT', icon: RefreshCcw, label: 'T. Inst.' },
                     { id: 'CARD_14D', icon: Clock, label: 'T. 14D' },
@@ -180,14 +180,14 @@ function App() {
                       key={item.id}
                       onClick={() => setMethod(item.id)}
                       className={cn(
-                        "group relative px-1 py-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2",
+                        "group relative px-1 py-3 md:py-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2",
                         method === item.id 
                           ? (darkMode ? "border-brand-500 bg-brand-500/5 text-white" : "border-brand-500 bg-brand-500/5 text-brand-600") 
                           : (darkMode ? "border-transparent bg-white/5 text-slate-500 hover:bg-white/10" : "border-transparent bg-slate-100 text-slate-500 hover:bg-slate-200")
                       )}
                     >
-                      <item.icon className="w-5 h-5" />
-                      <span className="text-[8px] font-black uppercase tracking-tighter text-center leading-tight">{item.label}</span>
+                      <item.icon className="w-4 h-4 md:w-5 md:h-5" />
+                      <span className="text-[7.5px] md:text-[8px] font-black uppercase tracking-tighter text-center leading-tight">{item.label}</span>
                       {method === item.id && <motion.div layoutId="activeMethodTab" className="absolute bottom-[-2px] left-3 right-3 h-[2px] bg-brand-500" />}
                     </button>
                   ))}
@@ -203,14 +203,14 @@ function App() {
                       key={item.id}
                       onClick={() => setMethod(item.id)}
                       className={cn(
-                        "group relative px-1 py-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2",
+                        "group relative px-1 py-3 md:py-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2",
                         method === item.id 
                           ? (darkMode ? "border-brand-500 bg-brand-500/5 text-white" : "border-brand-500 bg-brand-500/5 text-brand-600") 
                           : (darkMode ? "border-transparent bg-white/5 text-slate-500 hover:bg-white/10" : "border-transparent bg-slate-100 text-slate-500 hover:bg-slate-200")
                       )}
                     >
-                      <item.icon className="w-5 h-5" />
-                      <span className="text-[8px] font-black uppercase tracking-tighter text-center leading-tight">{item.label}</span>
+                      <item.icon className="w-4 h-4 md:w-5 md:h-5" />
+                      <span className="text-[7.5px] md:text-[8px] font-black uppercase tracking-tighter text-center leading-tight">{item.label}</span>
                       {method === item.id && <motion.div layoutId="activeMethodTab2" className="absolute bottom-[-2px] left-4 right-4 h-[2px] bg-brand-500" />}
                     </button>
                   ))}
